@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNetCore.Components.Routing
+
+<nav class="sidebar bg-light p-3">
+    <!-- Menu Home -->
+    <div class="nav-item mb-2">
+        <a href="javascript:void(0);" class="nav-link fw-bold" onclick="toggleSubMenu('submenu-home')">
+            🏠 Home ▼
+        </a>
+        <div id="submenu-home" class="submenu ps-3">
+            <NavLink class="nav-link" href="/home/page1" @onclick="CloseSubmenus" Match="NavLinkMatch.All">Page 1</NavLink>
+            <NavLink class="nav-link" href="/home/page2" @onclick="CloseSubmenus" Match="NavLinkMatch.All">Page 2</NavLink>
+        </div>
+    </div>
+
+    <!-- Menu Counter -->
+    <div class="nav-item mb-2">
+        <a href="javascript:void(0);" class="nav-link fw-bold" onclick="toggleSubMenu('submenu-counter')">
+            🔢 Counter ▼
+        </a>
+        <div id="submenu-counter" class="submenu ps-3">
+            <NavLink class="nav-link" href="/counter" @onclick="CloseSubmenus">Counter Main</NavLink>
+        </div>
+    </div>
+
+    <!-- Menu Weather -->
+    <div class="nav-item mb-2">
+        <a href="javascript:void(0);" class="nav-link fw-bold" onclick="toggleSubMenu('submenu-weather')">
+            🌦️ Weather ▼
+        </a>
+        <div id="submenu-weather" class="submenu ps-3">
+            <NavLink class="nav-link" href="/weather" @onclick="CloseSubmenus">Weather Forecast</NavLink>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private async Task CloseSubmenus()
+    {
+        await JS.InvokeVoidAsync("closeAllSubMenus");
+    }
+
+    [Inject]
+    IJSRuntime JS { get; set; }
+}

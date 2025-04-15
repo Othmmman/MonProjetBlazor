@@ -1,0 +1,74 @@
+.sidebar {
+    background-color: #343a40; /* Fond gris foncé (thème sombre Bootstrap) */
+    color: #ffffff; /* Texte blanc pour contraste */
+    padding: 1rem;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    border-right: 1px solid #6c757d; /* Bordure gris moyen */
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #ffffff; /* Liens en blanc */
+    text-decoration: none;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+    .nav-link:hover {
+        background-color: #495057; /* Fond gris plus clair au survol */
+        color: #ffffff; /* Texte blanc au survol */
+    }
+
+    .nav-link.fw-bold {
+        font-weight: 600 !important;
+        color: #ffffff; /* Titres en blanc */
+    }
+
+.submenu {
+    padding-left: 1.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    list-style: none;
+    display: none;
+}
+
+    .submenu.show {
+        display: block;
+    }
+
+    .submenu .nav-link {
+        padding: 0.25rem 1rem;
+        font-size: 0.9rem;
+        color: #adb5bd; /* Sous-liens en gris clair */
+        background-color: transparent;
+    }
+
+        .submenu .nav-link:hover {
+            background-color: #6c757d; /* Fond gris moyen au survol des sous-liens */
+            color: #ffffff; /* Texte blanc au survol des sous-liens */
+        }
+
+.main-content {
+    margin-left: 250px;
+    padding: 1rem;
+}
+
+@media (max-width: 767.98px) {
+    .sidebar {
+        width: 100%;
+        position: static;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid #6c757d;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding-top: 3.5rem;
+    }
+}
